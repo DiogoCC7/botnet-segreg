@@ -1,0 +1,13 @@
+services:
+  botnets:
+    build: 
+      context: .
+      dockerfile: docker/client/Dockerfile
+    deploy:
+      replicas: 30
+    networks:
+      - botnet-demo
+
+networks:
+  botnet-demo:
+    external: true

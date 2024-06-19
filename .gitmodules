@@ -1,0 +1,3 @@
+[submodule "byob/ecoprove"]
+	path = byob/ecoprove
+	url = https://github.com/BeatEcoprove/beat_ecoprove_backend.git

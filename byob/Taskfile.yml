@@ -1,0 +1,33 @@
+version: '3'
+
+tasks:
+  create-network:
+    cmds:
+      - docker network create botnet-demo
+
+  start:
+    cmds:
+      - docker compose up -d
+
+  stop:
+    cmds:
+      - docker compose up -d
+
+  compose:
+    cmds:
+      - cd ecoprove && docker compose --profile build up -d
+    silent: true
+
+  create-server:
+    cmds:
+      - task: create-network
+      - docker build -t botnet-server -f .\\docker\\server\\Dockerfile .
+      - docker run --name server --network botnet-demo -d -v ${PWD}/modules:/app/modules botnet-server
+    silent: true
+
+  rm-net:
+    desc: Roolback if error on create server
+    cmds:
+      - docker network rm botnet-demo
+    silent: true
+    error: true
