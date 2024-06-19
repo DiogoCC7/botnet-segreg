@@ -15,7 +15,7 @@ tasks:
 
   compose:
     cmds:
-      - cd ecoprove && docker compose --profile build up -d
+      - cd ecoprove && docker compose --profile build up -d && docker network connect botnet-demo nginx
     silent: true
 
   create-server:

@@ -1,9 +1,9 @@
 import requests
 import time
 
-for i in range(1, 15):
-    requests.get("http://ecoprove:3000")
-    print("dumb")
-    time.sleep(1)
+NUMBER_REQUESTS = 2000
+URL = "http://ngnix/metrics"
 
-print("finish")
+for i in range(1, NUMBER_REQUESTS):
+    requests.get(url=URL)
+    time.sleep(1)
