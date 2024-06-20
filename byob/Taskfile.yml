@@ -7,15 +7,15 @@ tasks:
 
   start:
     cmds:
-      - docker compose up -d
+      - docker compose up -d --build
 
   stop:
     cmds:
-      - docker compose up -d
+      - docker compose down
 
   compose:
     cmds:
-      - cd ecoprove && docker compose --profile build up -d && docker network connect botnet-demo nginx
+      - cd ecoprove && docker compose --profile build up -d && docker network connect botnet-demo ecoprove-api-build-1
     silent: true
 
   create-server:

@@ -4,7 +4,7 @@ services:
       context: .
       dockerfile: docker/client/Dockerfile
     deploy:
-      replicas: 30
+      replicas: 200
     networks:
       - botnet-demo
 

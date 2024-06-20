@@ -1,9 +1,11 @@
 import requests
 import time
 
-NUMBER_REQUESTS = 2000
-URL = "http://ngnix/metrics"
+# URL to attack
+URL = "http://ecoprove-api-build-1/metrics"
+print(f"Attacking ${URL}")
 
-for i in range(1, NUMBER_REQUESTS):
+# basic loop for keep fething the server to try to overload it
+while True:
     requests.get(url=URL)
-    time.sleep(1)
+    time.sleep(0.2)

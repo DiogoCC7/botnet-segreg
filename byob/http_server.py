@@ -3,10 +3,21 @@ import json
 
 from http.server import HTTPServer, BaseHTTPRequestHandler
 
+# Create an Simple HTTP SERVER
 class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
+    """
+        Payload file path, this file is meant to be uploaded to the victim machine
+        this will allow that the machine would be capable to manage multiple requests
+        to an respective server.
+    """
+    
     payload_path = "payload.py"
 
     def json(self, body, status: int = 200):
+        """
+            Send json object with standards http headers
+        """
+
         self.send_response(status)
         
         self.send_header('Content-type', 'application/json')
@@ -40,4 +51,5 @@ def run(server_class=HTTPServer, handler_class=SimpleHTTPRequestHandler, port=30
     httpd.serve_forever()
 
 if __name__ == "__main__":
+    # Run the actual server
     run()
